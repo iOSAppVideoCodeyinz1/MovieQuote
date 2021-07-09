@@ -12,10 +12,20 @@ class MovieQuotesTableViewController: UITableViewController {
 //    var names = ["Theo", "family member 1", "family member 2"]
     var movieQuotes = [MovieQuote]()
     
+    
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteDialog))
+        
         movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
         movieQuotes.append(MovieQuote(quote: "I am Groot", movie: "The Avengers"))
+    }
+    
+    @objc func showAddQuoteDialog(){
+        print("you pressed the add button")
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
