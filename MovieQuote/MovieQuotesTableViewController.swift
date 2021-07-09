@@ -9,10 +9,17 @@ import UIKit
 
 class MovieQuotesTableViewController: UITableViewController {
     let movieQuoteCellIndentifier = "MovieQuoteCell"
-    var names = ["Theo", "family member 1", "family member 2"]
+//    var names = ["Theo", "family member 1", "family member 2"]
+    var movieQuotes = [MovieQuote]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
+        movieQuotes.append(MovieQuote(quote: "I am Groot", movie: "The Avengers"))
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return names.count
+        return movieQuotes.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -20,8 +27,9 @@ class MovieQuotesTableViewController: UITableViewController {
         
         
         //configure cell
-        cell.textLabel?.text = names[indexPath.row]
-        
+//        cell.textLabel?.text = names[indexPath.row]
+        cell.textLabel?.text = movieQuotes[indexPath.row].quote
+        cell.detailTextLabel?.text = movieQuotes[indexPath.row].movie
         return cell
     }
     
