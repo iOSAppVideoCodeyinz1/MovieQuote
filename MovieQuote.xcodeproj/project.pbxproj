@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		D43EF64B26989FA700984C13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF64A26989FA700984C13 /* AppDelegate.swift */; };
 		D43EF64D26989FA700984C13 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF64C26989FA700984C13 /* SceneDelegate.swift */; };
-		D43EF64F26989FA700984C13 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF64E26989FA700984C13 /* ViewController.swift */; };
 		D43EF65226989FA700984C13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43EF65026989FA700984C13 /* Main.storyboard */; };
 		D43EF65426989FA900984C13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D43EF65326989FA900984C13 /* Assets.xcassets */; };
 		D43EF65726989FA900984C13 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D43EF65526989FA900984C13 /* LaunchScreen.storyboard */; };
+		D43EF6612698A47F00984C13 /* MovieQuotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF6602698A47F00984C13 /* MovieQuotesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D43EF64726989FA700984C13 /* MovieQuote.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieQuote.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D43EF64A26989FA700984C13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D43EF64C26989FA700984C13 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D43EF64E26989FA700984C13 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D43EF65126989FA700984C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D43EF65326989FA900984C13 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D43EF65626989FA900984C13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D43EF65826989FA900984C13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D43EF6602698A47F00984C13 /* MovieQuotesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuotesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +58,11 @@
 			children = (
 				D43EF64A26989FA700984C13 /* AppDelegate.swift */,
 				D43EF64C26989FA700984C13 /* SceneDelegate.swift */,
-				D43EF64E26989FA700984C13 /* ViewController.swift */,
 				D43EF65026989FA700984C13 /* Main.storyboard */,
 				D43EF65326989FA900984C13 /* Assets.xcassets */,
 				D43EF65526989FA900984C13 /* LaunchScreen.storyboard */,
 				D43EF65826989FA900984C13 /* Info.plist */,
+				D43EF6602698A47F00984C13 /* MovieQuotesTableViewController.swift */,
 			);
 			path = MovieQuote;
 			sourceTree = "<group>";
@@ -137,8 +137,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D43EF64F26989FA700984C13 /* ViewController.swift in Sources */,
 				D43EF64B26989FA700984C13 /* AppDelegate.swift in Sources */,
+				D43EF6612698A47F00984C13 /* MovieQuotesTableViewController.swift in Sources */,
 				D43EF64D26989FA700984C13 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
