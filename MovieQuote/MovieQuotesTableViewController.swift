@@ -25,6 +25,11 @@ class MovieQuotesTableViewController: UITableViewController {
         movieQuotes.append(MovieQuote(quote: "I am Groot", movie: "The Avengers"))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
+    
     @objc func showAddQuoteDialog(){
         //todo: CRUD
         let alertController = UIAlertController(title: "Create a new Moive Quote", message: "", preferredStyle: UIAlertController.Style.alert)
