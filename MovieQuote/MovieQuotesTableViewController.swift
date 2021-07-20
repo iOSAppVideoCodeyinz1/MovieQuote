@@ -11,6 +11,7 @@ class MovieQuotesTableViewController: UITableViewController {
     let movieQuoteCellIndentifier = "MovieQuoteCell"
 //    var names = ["Theo", "family member 1", "family member 2"]
     var movieQuotes = [MovieQuote]()
+    let detailSegueIndentifier = "DetailSegue"
     
     
     
@@ -77,6 +78,16 @@ class MovieQuotesTableViewController: UITableViewController {
 //            print("Delete this quote")
             movieQuotes.remove(at: indexPath.row)
             tableView.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        print("prepare")
+//        print(segue.identifier == detailSegueIndentifier)
+        if segue.identifier == detailSegueIndentifier {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                (segue.destination as! MovieQuoteDetailViewController).movieQuote = movieQuotes[indexPath.row]
+            }
         }
     }
 }
