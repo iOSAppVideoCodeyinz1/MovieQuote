@@ -17,7 +17,7 @@ class MovieQuotesTableViewController: UITableViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
+        navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteDialog))
         
         movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
@@ -72,5 +72,11 @@ class MovieQuotesTableViewController: UITableViewController {
         return cell
     }
     
-    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+//            print("Delete this quote")
+            movieQuotes.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
 }
