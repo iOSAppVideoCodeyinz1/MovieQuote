@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import Firebase
 
 class MovieQuotesTableViewController: UITableViewController {
     let movieQuoteCellIndentifier = "MovieQuoteCell"
 //    var names = ["Theo", "family member 1", "family member 2"]
     var movieQuotes = [MovieQuote]()
     let detailSegueIndentifier = "DetailSegue"
+    var movieQuotesRef: CollectionReference!
+    
     
     
     
@@ -21,13 +24,31 @@ class MovieQuotesTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteDialog))
         
-        movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
-        movieQuotes.append(MovieQuote(quote: "I am Groot", movie: "The Avengers"))
+//        movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
+//        movieQuotes.append(MovieQuote(quote: "I am Groot", movie: "The Avengers"))
+        movieQuotesRef = Firestore.firestore().collection("MovieQuotes")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
+        
+        movieQuotesRef.addSnapshotListener { querySnapshot, error in
+            if querySnapshot != nil {
+                self.movieQuotes.removeAll()
+                querySnapshot?.documents.forEach({ documentSnapshot in
+                    print(documentSnapshot.documentID)
+                    print(documentSnapshot.data())
+                    self.movieQuotes.append(MovieQuote(documentSnapShot: documentSnapshot))
+                    self.tableView.reloadData()
+                })
+            } else {
+                print("Error getting movie quotes \(error!)")
+            }
+        }
+        
+        
+        
     }
     
     @objc func showAddQuoteDialog(){
