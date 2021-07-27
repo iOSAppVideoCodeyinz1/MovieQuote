@@ -32,9 +32,26 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        tableView.reloadData()
+        if (Auth.auth().currentUser == nil){
+            //you are NOT signed in
+            print("Signed in")
+            Auth.auth().signInAnonymously { authResult, error in
+                if let error = error {
+                    print("Error with anonymous auth \(error)")
+                    return
+                }
+                print("You are signed in. Well Done!")
+            }
+        }else {
+            //you are signed in
+            print("You are already signed in.")
+        }
         
-        movieQuoteListener = movieQuotesRef.order(by: "Created", descending: true).limit(to: 50).addSnapshotListener { querySnapshot, error in
+        
+        
+        
+//        tableView.reloadData()
+        movieQuoteListener = movieQuotesRef.order(by: "created", descending: true).limit(to: 50).addSnapshotListener { querySnapshot, error in
             if querySnapshot != nil {
                 self.movieQuotes.removeAll()
                 querySnapshot?.documents.forEach({ documentSnapshot in
@@ -81,7 +98,12 @@ class MovieQuotesTableViewController: UITableViewController {
             //            let newMovieQuote = MovieQuote(quote: quoteTextField.text!, movie: movieTextField.text!)
             //            self.movieQuotes.insert(newMovieQuote, at: 0)
             //            self.tableView.reloadData()
-            self.movieQuotesRef.addDocument(data: ["quote": quoteTextField.text,"movie": movieTextField.text, "Created": Timestamp.init()])
+            self.movieQuotesRef.addDocument(data: [
+                "quote": quoteTextField.text,
+                "movie": movieTextField.text,
+                "created": Timestamp.init(),
+                "author": Auth.auth().currentUser!.uid
+            ])
             
         }
         alertController.addAction(submitAction)
