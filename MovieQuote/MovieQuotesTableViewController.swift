@@ -15,6 +15,7 @@ class MovieQuotesTableViewController: UITableViewController {
     let detailSegueIndentifier = "DetailSegue"
     var movieQuotesRef: CollectionReference!
     var movieQuoteListener: ListenerRegistration!
+    var isShowingAll = true
     
     
     
@@ -40,13 +41,23 @@ class MovieQuotesTableViewController: UITableViewController {
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
-        let submitAction = UIAlertAction(title: "Create Quote", style: .default) { (action) in
+        let createAction = UIAlertAction(title: "Create Quote", style: .default) { (action) in
             self.showAddQuoteDialog()
         }
-        alertController.addAction(submitAction)
+        let showMyAction = UIAlertAction(title: self.isShowingAll ? "Show only my quotes" : "Show all quotes", style: .default) { (action) in
+            //toggle the show all/mine mode
+            self.isShowingAll = !self.isShowingAll
+            //update the list
+            self.startListening()
+        }
+        
+        alertController.addAction(showMyAction)
+        alertController.addAction(createAction)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -65,11 +76,27 @@ class MovieQuotesTableViewController: UITableViewController {
             print("You are already signed in.")
         }
         
-        
-        
-        
 //        tableView.reloadData()
-        movieQuoteListener = movieQuotesRef.order(by: "created", descending: true).limit(to: 50).addSnapshotListener { querySnapshot, error in
+        startListening()
+        
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        movieQuoteListener.remove()
+    }
+    
+    func startListening() {
+        if(movieQuoteListener != nil) {
+            movieQuoteListener.remove()
+        }
+        var query = movieQuotesRef.order(by: "created", descending: true).limit(to: 50)
+        
+        if(!isShowingAll){
+            query = query.whereField("author", isEqualTo: Auth.auth().currentUser!.uid)
+        }
+        
+        movieQuoteListener = query.addSnapshotListener { querySnapshot, error in
             if querySnapshot != nil {
                 self.movieQuotes.removeAll()
                 querySnapshot?.documents.forEach({ documentSnapshot in
@@ -82,12 +109,6 @@ class MovieQuotesTableViewController: UITableViewController {
                 print("Error getting movie quotes \(error!)")
             }
         }
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        movieQuoteListener.remove()
     }
     
     func showAddQuoteDialog(){
