@@ -19,7 +19,7 @@ class MovieQuoteDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(showEditDialog))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(showEditDialog))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +36,15 @@ class MovieQuoteDetailViewController: UIViewController {
             }
             
             self.movieQuote = MovieQuote(documentSnapShot: documentSnapshot!)
+            //decide whether we can edit or not
+            if(Auth.auth().currentUser!.uid == self.movieQuote?.author){
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.edit, target: self, action: #selector(self.showEditDialog))
+            }else{
+                self.navigationItem.rightBarButtonItem = nil    
+            }
+            
+            
+            
             self.updateView()
         }
     }
