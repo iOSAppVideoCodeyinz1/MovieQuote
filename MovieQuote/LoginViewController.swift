@@ -32,7 +32,8 @@ class LoginViewController: UIViewController {
             print("It worked, new user is created")
             print("Email is \(authResult!.user.email)")
             print("UID is \(authResult!.user.uid)")
-
+            
+            self.performSegue(withIdentifier: self.ShowListSegueIdentifier, sender: self)
 
 
         }
@@ -50,6 +51,9 @@ class LoginViewController: UIViewController {
             print("It worked, logged in an existion account")
             print("Email is \(authResult!.user.email)")
             print("UID is \(authResult!.user.uid)")
+            
+            self.performSegue(withIdentifier: self.ShowListSegueIdentifier, sender: self)
+
         }
     }
     
