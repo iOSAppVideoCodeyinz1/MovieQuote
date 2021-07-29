@@ -23,11 +23,29 @@ class MovieQuotesTableViewController: UITableViewController {
         
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteDialog))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Menu", style: UIBarButtonItem.Style.plain, target: self, action: #selector(showMenu))
+        
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(showAddQuoteDialog))
         
         //        movieQuotes.append(MovieQuote(quote: "I'll be back", movie: "The Terminator"))
         //        movieQuotes.append(MovieQuote(quote: "I am Groot", movie: "The Avengers"))
         movieQuotesRef = Firestore.firestore().collection("MovieQuotes")
+    }
+    
+    @objc func showMenu (){
+
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        //configure
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        let submitAction = UIAlertAction(title: "Create Quote", style: .default) { (action) in
+            self.showAddQuoteDialog()
+        }
+        alertController.addAction(submitAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,22 +90,22 @@ class MovieQuotesTableViewController: UITableViewController {
         movieQuoteListener.remove()
     }
     
-    @objc func showAddQuoteDialog(){
-        //todo: CRUD
+    func showAddQuoteDialog(){
+//        //todo: CRUD
         let alertController = UIAlertController(title: "Create a new Moive Quote", message: "", preferredStyle: UIAlertController.Style.alert)
-        
+
         //configure
-        
+
         alertController.addTextField { textfield in
             textfield.placeholder = "Quote"
         }
-        
+
         alertController.addTextField { textfield in
             textfield.placeholder = "Movie"
         }
-        
+
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
+
         let submitAction = UIAlertAction(title: "Create Quote", style: .default) { (action) in
             print("TODO: Create a Movie Quote")
             //TODO: Add a quote
@@ -104,7 +122,7 @@ class MovieQuotesTableViewController: UITableViewController {
                 "created": Timestamp.init(),
                 "author": Auth.auth().currentUser!.uid
             ])
-            
+
         }
         alertController.addAction(submitAction)
         alertController.addAction(cancelAction)
