@@ -124,12 +124,71 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="gTi-Z7-w4v" kind="relationship" relationship="rootViewController" id="9Oh-b6-iEi"/>
+                        <segue destination="GcC-pg-bXH" kind="relationship" relationship="rootViewController" id="nsS-UN-IOD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZ9-2g-Ddv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-478.26086956521743" y="-169.41964285714286"/>
+            <point key="canvasLocation" x="-1301" y="-165"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="NAt-gk-n36">
+            <objects>
+                <viewController id="GcC-pg-bXH" customClass="LoginViewController" customModule="MovieQuote" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CDV-mb-fNz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YIU-e2-gQT">
+                                <rect key="frame" x="20" y="138" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Urt-Om-aEv">
+                                <rect key="frame" x="20" y="202" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rfO-Wc-NwE">
+                                <rect key="frame" x="20" y="266" width="113" height="30"/>
+                                <state key="normal" title="Sign in new user"/>
+                                <connections>
+                                    <action selector="pressedSignInNewUser:" destination="GcC-pg-bXH" eventType="touchUpInside" id="zti-gq-6Cr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3nB-00-cpx">
+                                <rect key="frame" x="261" y="266" width="133" height="30"/>
+                                <state key="normal" title="Log in existing user"/>
+                                <connections>
+                                    <action selector="pressedLogInExistingUser:" destination="GcC-pg-bXH" eventType="touchUpInside" id="Zt0-eL-rHR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0ju-tn-f77"/>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="0ju-tn-f77" firstAttribute="trailing" secondItem="YIU-e2-gQT" secondAttribute="trailing" constant="20" id="A4a-ld-J0r"/>
+                            <constraint firstItem="YIU-e2-gQT" firstAttribute="top" secondItem="0ju-tn-f77" secondAttribute="top" constant="50" id="DT6-Xb-AH7"/>
+                            <constraint firstItem="Urt-Om-aEv" firstAttribute="top" secondItem="YIU-e2-gQT" secondAttribute="bottom" constant="30" id="LpA-qY-cjs"/>
+                            <constraint firstItem="YIU-e2-gQT" firstAttribute="leading" secondItem="0ju-tn-f77" secondAttribute="leading" constant="20" id="QUx-l4-VwN"/>
+                            <constraint firstItem="0ju-tn-f77" firstAttribute="trailing" secondItem="3nB-00-cpx" secondAttribute="trailing" constant="20" id="Xrr-xl-L4k"/>
+                            <constraint firstItem="rfO-Wc-NwE" firstAttribute="top" secondItem="Urt-Om-aEv" secondAttribute="bottom" constant="30" id="dRn-Oj-4cC"/>
+                            <constraint firstItem="rfO-Wc-NwE" firstAttribute="leading" secondItem="0ju-tn-f77" secondAttribute="leading" constant="20" id="euq-JT-cVH"/>
+                            <constraint firstItem="Urt-Om-aEv" firstAttribute="leading" secondItem="0ju-tn-f77" secondAttribute="leading" constant="20" id="gJn-g8-EGg"/>
+                            <constraint firstItem="0ju-tn-f77" firstAttribute="trailing" secondItem="Urt-Om-aEv" secondAttribute="trailing" constant="20" id="om1-YE-Vye"/>
+                            <constraint firstItem="3nB-00-cpx" firstAttribute="top" secondItem="Urt-Om-aEv" secondAttribute="bottom" constant="30" id="vyY-dB-SWc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="otn-6A-uup"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="YIU-e2-gQT" id="Q2Z-XH-K0Z"/>
+                        <outlet property="passwordTextField" destination="Urt-Om-aEv" id="j9t-Wf-fMT"/>
+                        <segue destination="gTi-Z7-w4v" kind="show" identifier="ShowListSegue" id="IUi-yH-TgN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kA-z3-qNq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-470" y="-165"/>
         </scene>
     </scenes>
     <resources>

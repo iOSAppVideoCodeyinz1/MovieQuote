@@ -75,6 +75,7 @@ class MovieQuotesTableViewController: UITableViewController {
 //            //you are signed in
 //            print("You are already signed in.")
 //        }
+        
         //temp sign out
 //        do {
 //            try Auth.auth().signOut()
