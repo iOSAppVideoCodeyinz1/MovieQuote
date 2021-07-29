@@ -61,21 +61,33 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if (Auth.auth().currentUser == nil){
-            //you are NOT signed in
-            print("Signed in")
-            Auth.auth().signInAnonymously { authResult, error in
-                if let error = error {
-                    print("Error with anonymous auth \(error)")
-                    return
-                }
-                print("You are signed in. Well Done!")
-            }
-        }else {
-            //you are signed in
-            print("You are already signed in.")
-        }
+//        if (Auth.auth().currentUser == nil){
+//            //you are NOT signed in
+//            print("Signed in")
+//            Auth.auth().signInAnonymously { authResult, error in
+//                if let error = error {
+//                    print("Error with anonymous auth \(error)")
+//                    return
+//                }
+//                print("You are signed in. Well Done!")
+//            }
+//        }else {
+//            //you are signed in
+//            print("You are already signed in.")
+//        }
+        //temp sign out
+//        do {
+//            try Auth.auth().signOut()
+//        } catch {
+//            print("Sign out error")
+//        }
         
+        
+        if(Auth.auth().currentUser == nil){
+            print("you messed up, go back to login page")
+        }else {
+            print("you've signed in!")
+        }
 //        tableView.reloadData()
         startListening()
         
@@ -167,7 +179,7 @@ class MovieQuotesTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         let movieQuote = movieQuotes[indexPath.row]
-        return Auth.auth().currentUser!.uid == movieQuote.author 
+        return Auth.auth().currentUser!.uid == movieQuote.author
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
