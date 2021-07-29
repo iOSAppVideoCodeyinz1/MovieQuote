@@ -34,8 +34,8 @@ class LoginViewController: UIViewController {
             print("UID is \(authResult!.user.uid)")
             
             self.performSegue(withIdentifier: self.ShowListSegueIdentifier, sender: self)
-
-
+            
+            
         }
     }
     
@@ -53,9 +53,17 @@ class LoginViewController: UIViewController {
             print("UID is \(authResult!.user.uid)")
             
             self.performSegue(withIdentifier: self.ShowListSegueIdentifier, sender: self)
-
+            
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            print("Someone is already signed in")
+            self.performSegue(withIdentifier: self.ShowListSegueIdentifier, sender: self)
+        }
+        
+    }
     
 }
