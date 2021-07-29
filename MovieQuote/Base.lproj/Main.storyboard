@@ -163,6 +163,21 @@
                                     <action selector="pressedLogInExistingUser:" destination="GcC-pg-bXH" eventType="touchUpInside" id="Zt0-eL-rHR"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jh9-JB-P1t">
+                                <rect key="frame" x="57" y="445" width="300" height="60"/>
+                                <color key="backgroundColor" red="0.50196078431372548" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="TTe-ah-6kr"/>
+                                    <constraint firstAttribute="width" constant="300" id="dZa-Z2-bPO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
+                                <state key="normal" title="Sign in with Rosefire">
+                                    <color key="titleColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pressedRosefireLogin:" destination="GcC-pg-bXH" eventType="touchUpInside" id="RhN-m1-bg2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0ju-tn-f77"/>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -170,11 +185,13 @@
                             <constraint firstItem="0ju-tn-f77" firstAttribute="trailing" secondItem="YIU-e2-gQT" secondAttribute="trailing" constant="20" id="A4a-ld-J0r"/>
                             <constraint firstItem="YIU-e2-gQT" firstAttribute="top" secondItem="0ju-tn-f77" secondAttribute="top" constant="50" id="DT6-Xb-AH7"/>
                             <constraint firstItem="Urt-Om-aEv" firstAttribute="top" secondItem="YIU-e2-gQT" secondAttribute="bottom" constant="30" id="LpA-qY-cjs"/>
+                            <constraint firstItem="jh9-JB-P1t" firstAttribute="centerY" secondItem="0ju-tn-f77" secondAttribute="centerY" id="OkE-Zu-LNm"/>
                             <constraint firstItem="YIU-e2-gQT" firstAttribute="leading" secondItem="0ju-tn-f77" secondAttribute="leading" constant="20" id="QUx-l4-VwN"/>
                             <constraint firstItem="0ju-tn-f77" firstAttribute="trailing" secondItem="3nB-00-cpx" secondAttribute="trailing" constant="20" id="Xrr-xl-L4k"/>
                             <constraint firstItem="rfO-Wc-NwE" firstAttribute="top" secondItem="Urt-Om-aEv" secondAttribute="bottom" constant="30" id="dRn-Oj-4cC"/>
                             <constraint firstItem="rfO-Wc-NwE" firstAttribute="leading" secondItem="0ju-tn-f77" secondAttribute="leading" constant="20" id="euq-JT-cVH"/>
                             <constraint firstItem="Urt-Om-aEv" firstAttribute="leading" secondItem="0ju-tn-f77" secondAttribute="leading" constant="20" id="gJn-g8-EGg"/>
+                            <constraint firstItem="jh9-JB-P1t" firstAttribute="centerX" secondItem="0ju-tn-f77" secondAttribute="centerX" id="isz-6S-AfE"/>
                             <constraint firstItem="0ju-tn-f77" firstAttribute="trailing" secondItem="Urt-Om-aEv" secondAttribute="trailing" constant="20" id="om1-YE-Vye"/>
                             <constraint firstItem="3nB-00-cpx" firstAttribute="top" secondItem="Urt-Om-aEv" secondAttribute="bottom" constant="30" id="vyY-dB-SWc"/>
                         </constraints>
@@ -188,7 +205,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4kA-z3-qNq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-470" y="-165"/>
+            <point key="canvasLocation" x="-471.01449275362324" y="-165.40178571428569"/>
         </scene>
     </scenes>
     <resources>

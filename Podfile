@@ -10,6 +10,7 @@ target 'MovieQuote' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
   pod 'Firebase/Auth'
+  pod 'Rosefire', :git => 'https://ada.csse.rose-hulman.edu/rosefire/ios-sdk.git'
   # or pod ‘Firebase/AnalyticsWithoutAdIdSupport’
   # for Analytics without IDFA collection capability
   

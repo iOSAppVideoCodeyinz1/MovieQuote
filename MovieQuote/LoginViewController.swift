@@ -57,6 +57,11 @@ class LoginViewController: UIViewController {
         }
     }
     
+    @IBAction func pressedRosefireLogin(_ sender: Any) {
+        print("todo: rosefire login in")
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if Auth.auth().currentUser != nil {
