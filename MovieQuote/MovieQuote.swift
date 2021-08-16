@@ -8,6 +8,8 @@
 import Foundation
 import Firebase
 
+
+
 class MovieQuote {
     var quote: String
     var movie: String
@@ -28,3 +30,4 @@ class MovieQuote {
     }
     
 }
+
