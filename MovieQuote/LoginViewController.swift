@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import Rosefire
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
     let ShowListSegueIdentifier = "ShowListSegue"
@@ -15,11 +16,13 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var googleSignIn: GIDSignInButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTextField.placeholder = "Email"
         passwordTextField.placeholder = "Password"
+        googleSignIn.style = .wide
     }
     
     @IBAction func pressedSignInNewUser(_ sender: Any) {
@@ -83,6 +86,34 @@ class LoginViewController: UIViewController {
 
     }
     
+    @IBAction func pressedGoogleSignIn(_ sender: Any){
+        print("pressed google sign in")
+        guard let clientID = FirebaseApp.app()?.options.clientID else { print("error"); return }
+
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(with: config, presenting: self) { [unowned self] user, error in
+
+          if let error = error {
+            print("Sign in with google error \(error)")
+            return
+          }
+
+          guard
+            let authentication = user?.authentication,
+            let idToken = authentication.idToken
+          else {
+            return
+          }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: authentication.accessToken)
+
+          // ...
+        }
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)

@@ -19,6 +19,7 @@
 		D43EF6632698A6D100984C13 /* MovieQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = D43EF6622698A6D100984C13 /* MovieQuote.swift */; };
 		D469511926A77160009D1742 /* MovieQuoteDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D469511826A77160009D1742 /* MovieQuoteDetailViewController.swift */; };
 		D4B2D3B526A87C6D00F61C3A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D4B2D3B426A87C6D00F61C3A /* GoogleService-Info.plist */; };
+		D4C2B08726CAD29D000FA1FF /* SideNavViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C2B08626CAD29D000FA1FF /* SideNavViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		D43EF6622698A6D100984C13 /* MovieQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuote.swift; sourceTree = "<group>"; };
 		D469511826A77160009D1742 /* MovieQuoteDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieQuoteDetailViewController.swift; sourceTree = "<group>"; };
 		D4B2D3B426A87C6D00F61C3A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D4C2B08626CAD29D000FA1FF /* SideNavViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideNavViewController.swift; sourceTree = "<group>"; };
 		E8DC1B2808C099A658046D45 /* Pods-MovieQuote.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MovieQuote.debug.xcconfig"; path = "Target Support Files/Pods-MovieQuote/Pods-MovieQuote.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,6 +104,7 @@
 				D469511826A77160009D1742 /* MovieQuoteDetailViewController.swift */,
 				D4176EC326B31D7900A1B130 /* LoginViewController.swift */,
 				D4176EC526B3666000A1B130 /* Rosefire.swift */,
+				D4C2B08626CAD29D000FA1FF /* SideNavViewController.swift */,
 			);
 			path = MovieQuote;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				D4176EC626B3666000A1B130 /* Rosefire.swift in Sources */,
 				D43EF6612698A47F00984C13 /* MovieQuotesTableViewController.swift in Sources */,
 				D43EF64D26989FA700984C13 /* SceneDelegate.swift in Sources */,
+				D4C2B08726CAD29D000FA1FF /* SideNavViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,8 @@ target 'MovieQuote' do
   # add the Firebase pod for Google Analytics
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
+  pod 'GoogleSignIn'
+  pod 'SideMenu'
   pod 'Firebase/Auth'
   pod 'Rosefire', :git => 'https://ada.csse.rose-hulman.edu/rosefire/ios-sdk.git'
   # or pod ‘Firebase/AnalyticsWithoutAdIdSupport’
